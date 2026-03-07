@@ -1,0 +1,22 @@
+name: docker-deploy
+
+on:
+  workflow_run:
+    workflows: ["docker-build-push"]
+    types:
+      - completed
+    branches:
+       - main
+
+jobs:
+  deploy-docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull docker image
+        run: docker pull ${{ vars.DOCKER_USERNAME }}/reactmonolithui:latest
+  
+      - name: Run container
+        run: docker run -d -p 9000:80 --name react-app-ui ${{ vars.DOCKER_USERNAME }}/reactmonolithui:latest
+        
+        
+      
