@@ -1,0 +1,5 @@
+services:
+  react-monolith-ui:
+    build: .
+    ports:
+      - "9000:80"
