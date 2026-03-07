@@ -5,8 +5,7 @@ on:
     workflows: ["docker-build-push"]
     types:
       - completed
-    branches:
-       - main
+
 
 jobs:
   deploy-docker:
