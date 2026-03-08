@@ -9,7 +9,7 @@ on:
 
 jobs:
   deploy-docker:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Pull docker image
         run: docker pull ${{ vars.DOCKER_USERNAME }}/reactmonolithui:latest
